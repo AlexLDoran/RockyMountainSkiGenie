@@ -16,7 +16,7 @@ Released   : 20081009
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="../css/barrensavannah.css" />
+    <link rel="stylesheet" type="text/css" href="css/barrensavannah.css" />
     <title>Rocky Mountain Ski Genie: Arapahoe Basin</title>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
@@ -32,17 +32,43 @@ Released   : 20081009
     </div>
     <div class="contentBox">
         <div class="innerBox">
-            <h1>Current Snow Conditions</h1>
+            <h1>Today's Conditions</h1>
             <div class="contentText">
-                <p></p>
+                <p>The current temperature is: <span class="weather-temperature"></span>
+                <br />Today's high is: <span class="weather-max-temperature"></span>
+                <br />Today's low is: <span class="weather-min-temperature"></span>
+                <br />The current wind speed is: <span class="weather-wind-speed"></span>
+                <br />The sun will set today at <span class="weather-sunset"></span></p>
             </div>    
             <h1>Goggle Reccomendation</h1>
             <div class="contentText">
                 <p></p>
             </div>  
         </div>    
-    </div>        
-            
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="js/plugins/openWeather.js"></script>
+
+    <script>
+        $(function() {
+            $('.weather-temperature').openWeather({
+                lat: 39.642,
+                lng: -105.872,
+                descriptionTarget: '.weather-description',
+                minTemperatureTarget: '.weather-min-temperature',
+                maxTemperatureTarget: '.weather-max-temperature',
+                windSpeedTarget: '.weather-wind-speed',
+                sunsetTarget: '.weather-sunset',
+                iconTarget: '.weather-icon',
+                customIcons: 'img/icons/weather',
+                units: 'f',
+                key: 'ccaa1190220b67bd4310da2ca79f2012'
+            });
+        });
+    </script>        
+
     <!-- Please leave this in place after all of your content - thanks :) -->
     <div id="footer"><a href="http://www.aszx.net">web development</a> by <a href="http://www.bryantsmith.com">bryant smith</a></div>
     <!-- Please leave this in place after all of your content - thanks :) -->    
