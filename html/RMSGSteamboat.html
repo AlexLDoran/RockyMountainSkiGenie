@@ -27,6 +27,7 @@ Released   : 20081009
     <div id="mainPicture">
     	<div class="steamboatPicture">
         	<div id="headerTitle">Steamboat</div>
+            <div id="headerSubtext"><span class="weather-description"></span></div>
         </div>
     </div>
     <div class="contentBox">
@@ -39,9 +40,9 @@ Released   : 20081009
                 <br />The current wind speed is: <span class="weather-wind-speed"></span>
                 <br />The sun will set today at <span class="weather-sunset"></span></p>
             </div>
-            <h1>Goggle Reccomendation</h1>
+            <h1>Wax Reccomendation</h1>
             <div class="contentText">
-                <p></p>
+                <div id="wax"></div>
             </div>
         </div>
     </div>
@@ -49,6 +50,25 @@ Released   : 20081009
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     <script src="js/plugins/openWeather.js"></script>
+    <script src="js/waxRecommender.js"></script>
+    <script src="js/temperature.js"></script>
+
+    <script>
+        var test = Math.floor(Math.random()*(40-(-20)))+(-20);
+        if ( test >= 20) {
+            displayWax(highTemp);
+        } 
+        else if( test < 20 && test >=10) {
+            displayWax(midtohighTemp);
+        }
+        else if( test < 10 && test >=0) {
+            displayWax(midtolowTemp);
+        }
+        else {
+            displayWax(lowTemp);
+        }
+    </script>
+    
 
     <script>
         $(function() {
